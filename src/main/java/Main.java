@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,12 +69,17 @@ public class Main {
         }
         try {
             FileWriter writer = new FileWriter("C:\\Users\\explo\\Downloads\\"+ID_AUTO+".txt", true);
+            BufferedWriter bufferedWriter  = new BufferedWriter(writer);
 
+            StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < strings.size(); i++) {
-                writer.write(strings.get(i)+" ");
+              bufferedWriter.write(strings.get(i));
+              bufferedWriter.newLine();
+
 
             }
-            writer.flush();
+          bufferedWriter.flush();
+            bufferedWriter.close();
 
         } catch (IOException e) {
             e.printStackTrace();
