@@ -85,7 +85,7 @@ public class ReaderToTxt {
         boolean skipIs = false;
         WebElement element1 = null;
         try {
-            element1 = webDriver.findElement(By.className("user-banner__skip"));
+            element1 = webDriver.findElement(By.className("user-banner"));
             if (element1.isDisplayed()) {
                 System.out.println(11111111);
                 skipIs = true;
@@ -96,7 +96,8 @@ public class ReaderToTxt {
 
         if (skipIs) {
             Thread.sleep(6000);
-            element1.click();
+            WebElement skip = webDriver.findElement(By.className("user-banner__skip"));
+            skip.click();
         }
     }
 
